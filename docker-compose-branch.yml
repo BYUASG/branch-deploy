@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "${BRANCH_PORT}:5000"
+    networks:
+      - proxy
+  redis:
+    image: "redis:alpine"
+
+networks:
+  proxy:
+    external:
+      name: ${NETWORK_NAME}
