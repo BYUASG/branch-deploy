@@ -2,7 +2,7 @@
 
 This is a collection of shell scripts used to automatically deploy development
 branches of a docker-compose project via a CI pipeline.  This will allow your
-team to preview code to stakeholders or users before merging allowing for earlier
+team to preview code to stakeholders or users before merging, allowing for earlier
 testing and feedback.
 
 
