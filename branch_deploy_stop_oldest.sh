@@ -4,7 +4,6 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 . $SCRIPT_DIR/branch_deploy.env
 
 BRANCH_DIRECTORIES=$(ls -ltr $BRANCHES_DIR/ | grep -v $BRANCH_LIST_FILE | grep -vE "^total" )
-echo "BRANCH_DIRECTORIES = $BRANCH_DIRECTORIES"
 STOP_BRANCHES=$(echo "$BRANCH_DIRECTORIES" | head -n -$MAX_RUNNING_BRANCHES);
 
 if [ "$STOP_BRANCHES" != "" ]; then
