@@ -9,7 +9,6 @@ STOP_BRANCHES=$(echo "$BRANCH_DIRECTORIES" | head -n -$MAX_RUNNING_BRANCHES);
 
 if [ "$STOP_BRANCHES" != "" ]; then
   while read -r LISTING; do
-    echo $LISTING
     THIS_DIR=$(echo "$LISTING" | awk '{print $(NF)}')
     THIS_BRANCH_DIR=$BRANCHES_DIR/$THIS_DIR
     echo checking $THIS_BRANCH_DIR
