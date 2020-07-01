@@ -7,8 +7,6 @@ BRANCH_DIRECTORIES=$(ls -ltr $BRANCHES_DIR/ | grep -v $BRANCH_LIST_FILE | grep -
 echo "BRANCH_DIRECTORIES = $BRANCH_DIRECTORIES"
 STOP_BRANCHES=$(echo "$BRANCH_DIRECTORIES" | head -n -$MAX_RUNNING_BRANCHES);
 
-echo "STOP_BRANCHES = '$STOP_BRANCHES'"
-
 if [ "$STOP_BRANCHES" != "" ]; then
   while read -r LISTING; do
     echo $LISTING
