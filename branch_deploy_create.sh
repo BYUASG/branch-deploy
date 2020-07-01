@@ -8,7 +8,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 touch $BRANCH_LIST
 if ! grep -qcE "^$BRANCH " $BRANCH_LIST; then
   # Port is selected as $START_PORT + the number of lines in the branch list
-  echo $BRANCH $((START_PORT + $(wc -l < $BRANCH_LIST))) >> $BRANCH_LIST
+  echo $BRANCH $((START_PORT + $(wc -l < $BRANCH_LIST))) $BRANCH_SUBDOMAIN >> $BRANCH_LIST
 fi
 
 # Get port number for branch
