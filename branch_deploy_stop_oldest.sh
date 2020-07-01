@@ -15,7 +15,7 @@ if [ "$STOP_BRANCHES" != "" ]; then
 
     cd $THIS_BRANCH_DIR
     if [ $(docker-compose ps | wc -l) -gt 2 ]; then
-      # BRANCH_PORT just needst to be set, does not need to be to the correct value for this branch
+      # BRANCH_PORT just needs to be set, does not need to be to the correct value for this branch
       export BRANCH_PORT=$START_PORT
       docker-compose -f $DOCKER_COMPOSE_FILE down
     fi
