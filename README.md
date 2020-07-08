@@ -42,3 +42,4 @@ For example, a branch named my_feature, on a network of example.test and NGINX_P
 * Make subdomain name creation a little more robust (currently doesnt check for
   branch names that might result in subdomains ending or beggingn with -)
 * Add a better, more robust database
+* Implement HTTPS
