@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 
 # load our environment variables
-. env.sh
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+cd $SCRIPT_DIR
+. $SCRIPT_DIR/env.sh
 
 export NETWORK_NAME
 
-# This usese the age of the branch directories to see which ones should be live.
+rm nginx.conf.d/branch-*.conf
+
+# This uses the age of the branch directories to see which ones should be live.
 # This could be made more robust by putting an actual DB behind the scripts.
 BRANCH_DIRECTORIES=$(ls -ltr $BRANCHES_DIR/ | grep -v $BRANCH_LIST_FILE | grep -vE "^total" )
 LIVE_BRANCHES=$(echo "$BRANCH_DIRECTORIES" | tail -n -$MAX_RUNNING_BRANCHES);

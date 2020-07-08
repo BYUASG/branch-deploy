@@ -39,5 +39,11 @@ else
   echo "Error bringing containers online, probably should have some better error handing here."
 fi
 
-# this is a bit lazy, we may want to run this with n-1 first if we really want to cap the number of running branches
+# this is a bit lazy, we may want to run this with n-1 at the beginnung of this
+#   script if the goal is to be sure to always cap the number of running branches
 $SCRIPT_DIR/branch_deploy_stop_oldest.sh
+
+if [ "$NGINX_PROXY" == "subdomain" ]; then
+  echo Deploying Nginx Reverse Proxy on port $NGINX_PORT
+  $SCRIPT_DIR/nginx-proxy/create-config.sh
+fi
