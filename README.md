@@ -20,3 +20,26 @@ deploy process or just added to a subdirectory of your main repo.
 To invoke the script just call `./branch_deploy_create.sh $BRANCH_NAME` from your
 CI pipelne where `$BRANCH_NAME` is the value of the branch you wish to deploy.
 Probably the branch that has most recently been pushed/updated.
+
+
+## Reverse Proxy
+
+To deploy branches by subdomain you'll want to configure the Reverse Proxy
+section in branch_deploy.env
+
+Setting NGINX_PROXY to subdomain will attempt to create an nginx container that
+will use your branch name as a subdomain on your configured network NETWORK_NAME
+listening on port NGINX_PORT.
+
+For example, a branch named my_feature, on a network of example.test and NGINX_PORT
+8080 will be accessible at http://my-feature.example.test:8080
+
+
+## Next steps
+
+* Better documentation and examples
+* Implement optional path based reverse proxy
+* Make subdomain name creation a little more robust (currently doesnt check for
+  branch names that might result in subdomains ending or beggingn with -)
+* Add a better, more robust database
+* Implement HTTPS
