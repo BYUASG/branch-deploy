@@ -3,6 +3,9 @@
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 . $SCRIPT_DIR/branch_deploy.env
 
+# Make sure branch deploy directory exists
+if [ ! -d $BRANCH_DIR ]; then mkdir -p $BRANCH_DIR; fi
+
 # Generate port number
 #    this could be done easier (maybe) and more threadsafe (definitely) with a real database of some sort
 touch $BRANCH_LIST
